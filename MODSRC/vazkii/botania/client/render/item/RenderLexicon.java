@@ -65,6 +65,7 @@ public class RenderLexicon implements IItemRenderer {
 			GL11.glTranslatef(-0.3F, -0.2F, 0.07F);
 			GL11.glScalef(0.0035F, 0.0035F, 0.0035F);
 			boolean bevo = Minecraft.getMinecraft().thePlayer.getCommandSenderName().equals("BevoLJ");
+			boolean slak = Minecraft.getMinecraft().thePlayer.getCommandSenderName().equals("Slakkoo");
 			String title = ModItems.lexicon.getItemStackDisplayName(null);
 			String origTitle = title;
 			
@@ -78,23 +79,47 @@ public class RenderLexicon implements IItemRenderer {
 			GL11.glScalef(0.6F, 0.6F, 0.6F);
 			font.drawString(EnumChatFormatting.ITALIC + "" + EnumChatFormatting.BOLD + String.format(StatCollector.translateToLocal("botaniamisc.edition"), ItemLexicon.getEdition()), 0, 0, 0xA07100);
 			
-			GL11.glTranslatef(0F, 15F, 0F);
-			font.drawString(StatCollector.translateToLocal("botaniamisc.lexiconcover0"), 0, 0, 0x79ff92);
+			if(slak)
+			{
+				GL11.glTranslatef(0F, 15F, 0F);
+				font.drawString(StatCollector.translateToLocal("botaniamisc.XX_lexiconcover0"), 0, 0, 0x79ff92);
+				
+				GL11.glTranslatef(0F, 10F, 0F);
+				font.drawString(EnumChatFormatting.UNDERLINE + StatCollector.translateToLocal("botaniamisc.XX_lexiconcover1"), 0, 0, 0x79ff92);
+	
+				GL11.glTranslatef(0F, 25F, 0F);
+				GL11.glPushMatrix();
+				GL11.glScalef(6F, 6F, 6F);
+				GL11.glTranslatef(5F, -0.3F, 0F);
+				font.drawString(EnumChatFormatting.BOLD + "~", 0, 0, 0x002206);
+				GL11.glPopMatrix();
+				
+				GL11.glTranslatef(0F, 25F, 0F);
+				font.drawString(StatCollector.translateToLocal("botaniamisc.XX_lexiconcover2"), 0, 0, 0x79ff92);
+				GL11.glTranslatef(0F, 10F, 0F);
+				font.drawString(EnumChatFormatting.ITALIC + StatCollector.translateToLocal("botaniamisc.XX_lexiconcover3"), 0, 0, 0x79ff92);
+			}
+			else
+			{
+				GL11.glTranslatef(0F, 15F, 0F);
+				font.drawString(StatCollector.translateToLocal("botaniamisc.lexiconcover0"), 0, 0, 0x79ff92);
+				
+				GL11.glTranslatef(0F, 10F, 0F);
+				font.drawString(EnumChatFormatting.UNDERLINE + StatCollector.translateToLocal("botaniamisc.lexiconcover1"), 0, 0, 0x79ff92);
+	
+				GL11.glTranslatef(0F, 25F, 0F);
+				GL11.glPushMatrix();
+				GL11.glScalef(6F, 6F, 6F);
+				GL11.glTranslatef(5F, -0.3F, 0F);
+				font.drawString(EnumChatFormatting.BOLD + "~", 0, 0, 0x002206);
+				GL11.glPopMatrix();
+				
+				GL11.glTranslatef(0F, 25F, 0F);
+				font.drawString(StatCollector.translateToLocal("botaniamisc.lexiconcover2"), 0, 0, 0x79ff92);
+				GL11.glTranslatef(0F, 10F, 0F);
+				font.drawString(EnumChatFormatting.ITALIC + StatCollector.translateToLocal("botaniamisc.lexiconcover3"), 0, 0, 0x79ff92);
+			}
 			
-			GL11.glTranslatef(0F, 10F, 0F);
-			font.drawString(EnumChatFormatting.UNDERLINE + StatCollector.translateToLocal("botaniamisc.lexiconcover1"), 0, 0, 0x79ff92);
-
-			GL11.glTranslatef(0F, 25F, 0F);
-			GL11.glPushMatrix();
-			GL11.glScalef(6F, 6F, 6F);
-			GL11.glTranslatef(5F, -0.3F, 0F);
-			font.drawString(EnumChatFormatting.BOLD + "~", 0, 0, 0x002206);
-			GL11.glPopMatrix();
-			
-			GL11.glTranslatef(0F, 25F, 0F);
-			font.drawString(StatCollector.translateToLocal("botaniamisc.lexiconcover2"), 0, 0, 0x79ff92);
-			GL11.glTranslatef(0F, 10F, 0F);
-			font.drawString(EnumChatFormatting.ITALIC + StatCollector.translateToLocal("botaniamisc.lexiconcover3"), 0, 0, 0x79ff92);
 			if(bevo) {
 				GL11.glTranslatef(0F, 10F, 0F);
 				font.drawString(StatCollector.translateToLocal("botaniamisc.lexiconcover4"), 0, 0, 0x79ff92);
